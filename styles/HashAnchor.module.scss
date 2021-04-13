@@ -1,0 +1,17 @@
+@import "styles/theme.scss";
+.root {
+  display: block;
+  height: 0;
+  position: relative;
+
+  .hashAnchor {
+    position: absolute;
+    top: -#{$header-height + $header-menu-height};
+
+    @include mobile() {
+      top: -$mobile-header-height;
+    }
+  }
+}
+
+// write another class
