@@ -1,47 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {} from 'react';
+import {useMediaQuery} from 'react-responsive';
 
 export const Hidden: React.FC<{on: 'pc' | 'mobile'}> = ({on, children}) => {
-  const [width, setWidth] = useState(5000);
-  useEffect(() => {
-    setWidth(window.innerWidth);
-    window.addEventListener('resize', () => {
-      setWidth(window.innerWidth);
-    });
-  }, []);
-  if (width > 720 && on === 'pc') {
+  const mq = useMediaQuery({
+    query: 'screen and (min-width: 721px)',
+  });
+  if (mq && on === 'pc') {
     return (<></>);
-  } else if (width > 720 && on === 'mobile') {
-    return (<>{children}</>);
-  } else if (width <= 720 && on === 'pc') {
-    return (<>{children}</>);
-  } else if (width <= 720 && on === 'mobile') {
+  }
+  if (!mq && on === 'mobile') {
     return (<></>);
   }
   return (<>{children}</>);
 };
 
-export type MediaQueryRefType = {
-  hidden: boolean,
-}
-
-const rRef: MediaQueryRefType = {
-  hidden: true,
-};
-
-export const changeWidth = (setFn: React.Dispatch<React.SetStateAction<number>>) => () => {
-  window.addEventListener('resize', () => {
-    setFn(window.innerWidth);
+export const getDevice = (): 'pc' | 'mobile' => {
+  const mq = useMediaQuery({
+    query: 'screen and (min-width: 721px)',
   });
+  return mq ? 'mobile' : 'pc';
 };
-export const useResize = (on: 'pc' | 'mobile'): [() => void, MediaQueryRefType] => [() => {
-  const width = window.innerWidth;
-  if (width > 720 && on === 'pc') {
-    rRef.hidden = false;
-  } else if (width > 720 && on === 'mobile') {
-    rRef.hidden = true;
-  } else if (width <= 720 && on === 'pc') {
-    rRef.hidden = true;
-  } else if (width <= 720 && on === 'mobile') {
-    rRef.hidden = false;
-  }
-}, rRef];

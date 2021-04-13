@@ -7,7 +7,7 @@ const IndexPage: NextPage<{}> = () => {
   return (
     <div className={classes.root}>
       <Head>
-        <title>Monbrand software | TOP</title>
+        <title>first page</title>
       </Head>
     </div>
   );
