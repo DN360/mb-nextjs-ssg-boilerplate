@@ -83,14 +83,14 @@ export const ${upperName}: React.FC<{}> = () => {
     const tsxFile = `import React from 'react';
 import classes from 'styles/${dirName}/${fileName}.module.scss';
 import {NextPage} from 'next';
-import Head from 'next/head';
+import {SmartHead} from 'components/SmartHead';
 
 const ${upperName}Page: NextPage<{}> = () => {
   return (
     <div className={classes.root}>
-      <Head>
-        <title>${upperName}</title>
-      </Head>
+      <SmartHead
+        title={'${upperName}'}
+      />
       {/* write here */}
     </div>
   );

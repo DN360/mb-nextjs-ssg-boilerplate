@@ -1,14 +1,12 @@
 import React, {} from 'react';
 import classes from '../styles/index.module.scss';
-import Head from 'next/head';
 import {NextPage} from 'next';
+import { SmartHead } from 'components/SmartHead';
 
 const IndexPage: NextPage<{}> = () => {
   return (
     <div className={classes.root}>
-      <Head>
-        <title>first page</title>
-      </Head>
+      <SmartHead />
     </div>
   );
 };
