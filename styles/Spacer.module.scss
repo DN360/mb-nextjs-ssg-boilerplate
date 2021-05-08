@@ -1,0 +1,30 @@
+@import "theme.scss";
+
+.root {
+  display: block;
+}
+
+.headerHeight {
+  height: #{$header-height + $header-menu-height};
+  @include mobile() {
+    height: $mobile-header-height;
+  }
+}
+
+.thin {
+  &Height {
+    height: $padding-base;
+  }
+  &Width {
+    width: $padding-base;
+  }
+}
+
+.thick {
+  &Height {
+    height: $padding-base * 3;
+  }
+  &Width {
+    width: $padding-base * 3;
+  }
+}

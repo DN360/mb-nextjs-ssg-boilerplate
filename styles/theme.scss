@@ -1,0 +1,202 @@
+@mixin mobile() {
+  @media screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+@mixin ratioUp($rat: "16/9") {
+  @media (aspect-ratio: $rat), (min-aspect-ratio: $rat) {
+    @content;
+  }
+}
+@mixin ratioDown($rat: "16/9") {
+  @media (max-aspect-ratio: $rat) {
+    @content;
+  }
+}
+
+$main-color1: #678f3d;
+$main-color2: #789a52;
+$main-color3: #9fb682;
+$text-color: #1e212b;
+
+$yellow1: #f9e165;
+$yellow2: #ffe59a;
+
+$cyan1: #78d3dc;
+$cyan2: #d3f1f3;
+
+$green: #86deb7;
+
+$gray: #e6e6e6;
+$light-gray: #e6e6e6;
+
+$prekids-color: #ffcc99;
+$kids-color: #f4b8b3;
+$junior-color: #bbe2e5;
+$teen-color: #ffe59a;
+$kidsdance-color: #cf90c3;
+$beginner-color: #c0e7d0;
+$basic-color: #ffd477;
+$regular-color: #ee7674;
+$pro-color: #b4d6ac;
+
+$max-width: 1024px;
+$header-height: 95px;
+$header-menu-height: 55px;
+$mobile-header-height: 50px;
+$padding-base: 16px;
+$font-size: 16px;
+
+.bgYellow1 {
+  background-color: $yellow1;
+}
+
+.bgYellow2 {
+  background-color: $yellow2;
+}
+
+.bgGray {
+  background-color: $gray;
+}
+
+.bgMain1 {
+  background-color: $main-color1;
+}
+
+.bgMain2 {
+  background-color: $main-color2;
+}
+
+.bgMain3 {
+  background-color: $main-color3;
+}
+
+.bgGreen {
+  background-color: $green;
+}
+
+.red {
+  color: $regular-color;
+}
+
+.w100 {
+  display: block;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.inline {
+  display: inline;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+
+  &Center {
+    justify-content: center;
+  }
+  &VCenter {
+    align-items: center;
+  }
+}
+
+.fluid {
+  padding: 0;
+  padding-block: 0;
+}
+
+.marker {
+  &Yellow {
+    background: linear-gradient(transparent 60%, $yellow1 60%);
+  }
+  &Red {
+    background: linear-gradient(transparent 60%, $main-color3 60%);
+  }
+  &Green {
+    background: linear-gradient(transparent 60%, $main-color2 60%);
+  }
+}
+
+.linkButton {
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px solid rgba($color: white, $alpha: 0.5);
+  background-color: rgba($color: white, $alpha: 0);
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color: rgba($color: white, $alpha: 1);
+  }
+}
+
+.h2 {
+  font-size: 48px;
+
+  @include mobile {
+    font-size: 33px;
+  }
+}
+
+.h3 {
+  font-size: 33px;
+
+  @include mobile {
+    font-size: 27px;
+  }
+}
+
+.h4 {
+  font-size: 30px;
+}
+
+.h5 {
+  font-size: 27px;
+
+  @include mobile {
+    font-size: 20px;
+  }
+}
+
+.invisible {
+  & > * {
+    opacity: 0;
+    pointer-events: none;
+    cursor: inherit;
+  }
+}
+
+.fluid {
+  padding: 0;
+  margin: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+a.link {
+  text-decoration: underline;
+}
+
+.cyanBar {
+  width: 100%;
+  display: block;
+  border: 1px solid $cyan1;
+}
+
+.clickable {
+  cursor: pointer;
+}
